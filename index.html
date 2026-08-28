@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Karthik Garnepudi — PhD Researcher</title>
+<meta name="description" content="Sai Karthik Garnepudi — PhD Student in Communications, Computer Networking, Cybersecurity & Data Science, Wichita State University">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1120;
+    --surface:#111A2E;
+    --surface-2:#16213A;
+    --line:#22304D;
+    --text:#E8EDF7;
+    --text-dim:#8A97B3;
+    --accent:#5EEAD4;
+    --accent-dim:#2F6E66;
+    --warn:#F59E0B;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.01em;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:1000px; margin:0 auto; padding:0 28px;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,17,32,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; justify-content:space-between; align-items:center; height:64px;}
+  .nav-name{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px;}
+  .nav-links{display:flex; gap:28px; list-style:none;}
+  .nav-links a{color:var(--text-dim); font-size:14px; font-weight:500;}
+  .nav-links a:hover{color:var(--accent); text-decoration:none;}
+  @media (max-width:640px){ .nav-links{gap:16px;} .nav-links a{font-size:13px;} }
+
+  /* HERO */
+  header.hero{padding:100px 0 60px; position:relative;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow::before{content:''; width:8px; height:8px; background:var(--accent); border-radius:50%; box-shadow:0 0 12px var(--accent);}
+  h1.title{font-size:clamp(32px,6vw,56px); line-height:1.05; max-width:780px;}
+  .subtitle{color:var(--text-dim); font-size:clamp(15px,2vw,18px); margin-top:20px; max-width:600px;}
+  .affil{margin-top:26px; font-size:14px; color:var(--text-dim);}
+  .affil strong{color:var(--text); font-weight:500;}
+
+  /* Signal trace SVG */
+  .trace-wrap{width:100%; margin-top:56px; height:90px;}
+  .trace-wrap svg{width:100%; height:100%; display:block;}
+  .trace-path{
+    fill:none; stroke:var(--accent); stroke-width:1.6;
+    stroke-dasharray:1400; stroke-dashoffset:1400;
+    animation:draw 2.6s cubic-bezier(.65,0,.35,1) forwards;
+  }
+  @media (prefers-reduced-motion: reduce){ .trace-path{animation:none; stroke-dashoffset:0;} }
+  @keyframes draw{ to{stroke-dashoffset:0;} }
+
+  section{padding:64px 0; border-top:1px solid var(--line);}
+  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:36px;}
+  .section-head h2{font-size:22px;}
+  .section-head .tag{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim);}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns:1fr; gap:20px;}
+  .about-grid p{color:var(--text-dim); max-width:680px; font-size:15.5px;}
+  .about-grid p strong{color:var(--text); font-weight:500;}
+  .tag-cloud{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
+  .pill{
+    font-family:'JetBrains Mono',monospace; font-size:12.5px;
+    padding:7px 14px; border:1px solid var(--line); border-radius:999px;
+    color:var(--accent); background:var(--surface);
+  }
+  .advisors{margin-top:32px; border-top:1px solid var(--line); padding-top:24px;}
+  .advisor-label{font-size:11px; color:var(--text-dim); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px;}
+  .advisor-list{display:flex; flex-wrap:wrap; gap:28px;}
+  .advisor-item{display:flex; flex-direction:column; gap:3px;}
+  .advisor-item .name{font-size:14.5px; font-weight:500; color:var(--text);}
+  .advisor-item .affil-sm{font-size:12.5px; color:var(--text-dim);}
+
+  .pub-list{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .pub-item{background:var(--surface); padding:24px 26px;}
+  .pub-tag{font-size:11px; color:var(--accent); letter-spacing:0.06em;}
+  .pub-title{font-size:16.5px; margin:10px 0 8px; line-height:1.4;}
+  .pub-authors{font-size:13.5px; color:var(--text-dim);}
+  .pub-venue{font-size:13px; color:var(--text-dim); font-style:italic; margin-top:2px;}
+
+  /* RESEARCH PILLARS */
+  .pillars{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .pillar{background:var(--surface); padding:28px;}
+  .pillar .tag{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:0.08em;}
+  .pillar h3{font-size:17px; margin:10px 0 8px;}
+  .pillar p{font-size:14px; color:var(--text-dim);}
+  @media (max-width:640px){ .pillars{grid-template-columns:1fr;} }
+
+  /* PUBLICATIONS / PROJECTS */
+  .empty-state{
+    border:1px dashed var(--line); border-radius:6px; padding:32px;
+    color:var(--text-dim); font-size:14px; background:var(--surface);
+  }
+  .empty-state .mono{color:var(--accent); display:block; margin-bottom:8px; font-size:12px;}
+
+  .card-list{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .card{background:var(--surface); padding:20px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;}
+  .card .name{font-weight:500; font-size:15px;}
+  .card .desc{color:var(--text-dim); font-size:13.5px; margin-top:4px;}
+  .card .link{font-family:'JetBrains Mono',monospace; font-size:12px; white-space:nowrap;}
+
+  /* CONTACT */
+  .contact-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px;}
+  .contact-item{border:1px solid var(--line); padding:20px; border-radius:6px; background:var(--surface);}
+  .contact-item .tag{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.08em;}
+  .contact-item a, .contact-item .val{display:block; margin-top:8px; font-size:14.5px; font-weight:500; overflow-wrap:break-word; word-break:break-word;}
+  .contact-item .val{color:var(--text-dim); font-style:italic;}
+
+  footer{padding:36px 0 60px; text-align:center; color:var(--text-dim); font-size:13px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">S. K. Garnepudi</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Wichita State University</div>
+    <h1 class="title">Sai Karthik Garnepudi</h1>
+    <p class="subtitle">PhD Student researching the intersection of communications, computer networking, cybersecurity, and applied data science implementation techniques.</p>
+    <p class="affil">Advised by <strong>Dr. John Watkins</strong>, <strong>Dr. Edwin Sawan</strong> & <strong>Dr. Geethalakshmi S. Lakshmikanth</strong></p>
+
+    <div class="trace-wrap" aria-hidden="true">
+      <svg viewBox="0 0 1000 90" preserveAspectRatio="none">
+        <path class="trace-path" d="M0,45 L60,45 L80,15 L100,75 L120,45 L180,45 L200,20 L215,70 L230,45 L300,45 Q330,45 340,25 Q350,5 360,45 L420,45 L440,60 L460,30 L480,45 L560,45 L580,10 L600,80 L620,45 L700,45 Q720,45 730,20 Q740,55 750,45 L820,45 L840,25 L860,65 L880,45 L1000,45"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head"><h2>About</h2><span class="tag">// bio</span></div>
+    <div class="about-grid">
+      <p>I am a <strong>PhD researcher and educator in Computer Science</strong> with interests in cybersecurity, artificial intelligence, machine learning, networking, SATCOM security, and AI-enabled medical technologies.</p>
+      <p>My research focuses on developing intelligent systems for <strong>anomaly detection, jamming detection, secure communications, and AI-assisted monitoring systems</strong>. I also work with networking technologies including BGP, OSPF, MPLS, EVPN, VXLAN, SD-WAN, and network automation.</p>
+      <p>I enjoy building practical research prototypes, exploring startup ideas, and translating academic research into real-world solutions.</p>
+      <p>PhD Student in Communications, Computer Networking, Cybersecurity & Data Science at <strong>Wichita State University</strong>.</p>
+    </div>
+
+    <div class="advisors">
+      <div class="advisor-label mono">Advised by</div>
+      <div class="advisor-list">
+        <div class="advisor-item">
+          <span class="name">Dr. John Watkins</span>
+          <span class="affil-sm">Wichita State University</span>
+        </div>
+        <div class="advisor-item">
+          <span class="name">Dr. Edwin Sawan</span>
+          <span class="affil-sm">Wichita State University</span>
+        </div>
+        <div class="advisor-item">
+          <span class="name"><a href="https://scholar.google.com/citations?user=rWXjRtYAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Geethalakshmi S. Lakshmikanth ↗</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tag-cloud">
+      <span class="pill">AI & Machine Learning</span>
+      <span class="pill">Cybersecurity</span>
+      <span class="pill">Satellite Communication Security</span>
+      <span class="pill">Network Security & Advanced Networking</span>
+      <span class="pill">Medical Device Cybersecurity</span>
+      <span class="pill">AI-enabled Healthcare Systems</span>
+      <span class="pill">IoT & Sensor-based Systems</span>
+      <span class="pill">Research Prototyping</span>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="section-head"><h2>Research Areas</h2><span class="tag">// focus</span></div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="tag">[CYBERSEC]</span>
+        <h3>Cybersecurity</h3>
+        <p>Protecting modern communication, computing, and connected systems from evolving threats — anomaly detection, network security, adversarial behavior detection, medical device cybersecurity, intrusion detection, and AI/ML applied to cyber defense. Focused on intelligent security mechanisms that identify abnormal behavior, detect attacks in real time, and improve resilience across critical and distributed systems.</p>
+      </div>
+      <div class="pillar">
+        <span class="tag">[COMMS]</span>
+        <h3>Communications</h3>
+        <p>Secure and reliable wireless and satellite communication systems — SATCOM security, jamming detection, communication-system telemetry, signal quality monitoring, interference analysis, and AI-assisted communication system supervision. Combining communication-system modeling with ML to detect abnormal conditions, improve reliability, and support intelligent resource management.</p>
+      </div>
+      <div class="pillar">
+        <span class="tag">[NETWORK]</span>
+        <h3>Computer Networking</h3>
+        <p>Routing, switching, network architecture, network security, and next-generation networking — BGP, OSPF, MPLS, EVPN, VXLAN, SD-WAN, network automation, and software-defined networking. Focused on how modern networks can be designed, monitored, secured, and optimized for scalability, reliability, and performance.</p>
+      </div>
+      <div class="pillar">
+        <span class="tag">[DATA-SCI]</span>
+        <h3>Data Science</h3>
+        <p>Extracting meaningful information from complex datasets using statistical analysis, machine learning, deep learning, and data-driven modeling — time-series analysis, anomaly detection, predictive modeling, feature engineering, and model evaluation, applying deep learning architectures to cybersecurity, communications, and intelligent monitoring systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <div class="section-head"><h2>Publications</h2><span class="tag">// papers</span></div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <span class="pub-tag mono">IEEE SoutheastCon 2026</span>
+        <h3 class="pub-title">Deep Learning for Anomaly Detection in Satellite Signal Traffic: Securing Space-Based Infrastructure</h3>
+        <p class="pub-authors">Sai Karthik Garnepudi, John Watkins, M. Edwin Sawan, Geethalakshmi S. Lakshmikanth</p>
+        <p class="pub-venue">Huntsville, Alabama, USA</p>
+      </div>
+      <div class="pub-item">
+        <span class="pub-tag mono">IEEE CCTA 2026</span>
+        <h3 class="pub-title">Jamming Detection for SATCOM Terminal Telemetry Using a New Radio-Based Link Emulator and Temporal Convolutional Network</h3>
+        <p class="pub-authors">Sai Karthik Garnepudi, John Watkins, M. Edwin Sawan, Geethalakshmi S. Lakshmikanth</p>
+        <p class="pub-venue">IEEE Conference on Control Technology and Applications, Vancouver, Canada</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head"><h2>Projects & Mentoring</h2><span class="tag">// applied work</span></div>
+
+    <div class="pub-list" style="margin-bottom:20px;">
+      <div class="pub-item">
+        <span class="pub-tag mono">MENTORED UNDERGRADUATE RESEARCH · CYBERSECURITY & AI</span>
+        <h3 class="pub-title">Adversarial Patch Effectiveness on UAVs/Drones</h3>
+        <p class="pub-authors">Student Researcher: Alexander Pickett · Mentor: Sai Karthik Garnepudi</p>
+        <p class="pub-venue">Wichita State University</p>
+        <p style="margin-top:14px; font-size:14px; color:var(--text-dim); line-height:1.65;">
+          Investigated the effectiveness of adversarial patches against UAV/drone-based computer vision systems, exploring how specially designed visual patterns can interfere with AI object-detection models used by autonomous aerial systems. Evaluated different adversarial patch configurations to understand their ability to reduce detection confidence and cause vision-based systems to misidentify or fail to recognize targeted objects — providing practical insight into cybersecurity risks in AI-enabled autonomous systems, drones, and computer vision, and the need for robust ML models that withstand adversarial attacks.
+        </p>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-bottom:20px;"><h3 style="font-size:15px; color:var(--text-dim);">GitHub Repositories</h3></div>
+    <div class="card-list">
+      <div class="card">
+        <div>
+          <div class="name">[Project name]</div>
+          <div class="desc">[One-line description of what it does and what it demonstrates.]</div>
+        </div>
+        <a class="link" href="#">github.com/yourusername/repo →</a>
+      </div>
+      <div class="card">
+        <div>
+          <div class="name">[Project name]</div>
+          <div class="desc">[One-line description of what it does and what it demonstrates.]</div>
+        </div>
+        <a class="link" href="#">github.com/yourusername/repo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head"><h2>Contact & Links</h2><span class="tag">// reach</span></div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="tag">Email</div>
+        <a href="mailto:saikarthik.garnepudi@wichita.edu">saikarthik.garnepudi@wichita.edu</a>
+      </div>
+      <div class="contact-item">
+        <div class="tag">ORCID</div>
+        <a href="https://orcid.org/0009-0001-7033-2719" target="_blank" rel="noopener">0009-0001-7033-2719</a>
+      </div>
+      <div class="contact-item">
+        <div class="tag">GitHub</div>
+        <a href="https://github.com/saikarthikgarnepudi" target="_blank" rel="noopener">@saikarthikgarnepudi</a>
+      </div>
+      <div class="contact-item">
+        <div class="tag">LinkedIn</div>
+        <a href="https://linkedin.com/in/saikarthikgarnepudi" target="_blank" rel="noopener">in/saikarthikgarnepudi</a>
+      </div>
+      <div class="contact-item">
+        <div class="tag">Google Scholar</div>
+        <a href="https://scholar.google.com/citations?hl=en&user=O_WLcugAAAAJ&view_op=list_works&sortby=title" target="_blank" rel="noopener">View profile ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Sai Karthik Garnepudi · Built with GitHub Pages
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
